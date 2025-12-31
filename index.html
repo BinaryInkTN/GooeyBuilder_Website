@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GooeyBuilder - Visual GUI Builder for Gooey</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --primary: #8ab4f8;
+                --primary-dark: #669df6;
+                --background: #202124;
+                --surface: #292a2d;
+                --border: #3c4043;
+                --text: #e8eaed;
+                --text-secondary: #9aa0a6;
+                --code-bg: #2d2e30;
+                --hover: #35363a;
+            }
+            body {
+                background-color: var(--background);
+                color: var(--text);
+                font-family: "JetBrains Mono", monospace;
+                transition: 0.3s;
+            }
+            .container-narrow {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .code-block {
+                background-color: var(--code-bg);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        <div
+            class="text-center text-sm py-2 border-b"
+            style="
+                background-color: var(--hover);
+                border-color: var(--border);
+                color: var(--text-secondary);
+            "
+        >
+            GooeyBuilder is an early preview. APIs, UI, and features are still
+            evolving.
+        </div>
+
+        <nav
+            class="sticky top-0 z-50 border-b"
+            style="
+                background-color: var(--surface);
+                border-color: var(--border);
+            "
+        >
+            <div
+                class="container-narrow px-4 py-4 flex justify-between items-center"
+            >
+                <div>
+                    <h1 class="text-xl font-bold"><u>G</u>Builder</h1>
+                    <p class="text-xs" style="color: var(--text-secondary)">
+                        Visual Designer for Gooey
+                    </p>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features">Features</a>
+                    <a href="#comparison">Capabilities</a>
+                    <a
+                        href="https://github.com/BinaryInkTN/GooeyBuilder"
+                        target="_blank"
+                        >GitHub</a
+                    >
+                </div>
+            </div>
+        </nav>
+
+        <section class="py-16 md:py-24">
+            <div
+                class="container-narrow px-4 text-center max-w-3xl mx-auto mb-12"
+            >
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    Drag & Drop Designer
+                    <span class="block" style="color: var(--primary)"
+                        >for Gooey</span
+                    >
+                </h1>
+                <p class="text-lg mb-3" style="color: var(--text-secondary)">
+                    A lightweight, cross-platform visual GUI builder for the
+                    Gooey C GUI framework.
+                </p>
+                <p class="text-sm mb-8" style="color: var(--text-secondary)">
+                    Early preview. Core widgets, layout system, and code
+                    generation are under active development.
+                </p>
+                <div class="flex gap-2 justify-center items-center">
+                    <div
+                        class="code-block max-w-full overflow-x-auto whitespace-nowrap px-4 py-3 text-left relative overflow-x-hidden"
+                    >
+                        <code id="installCmd"
+                            >curl -sSL
+                            https://raw.githubusercontent.com/BinaryInkTN/GooeyBuilder/refs/heads/main/installer.sh
+                            | bash</code
+                        >
+                    </div>
+                    <button
+                        onclick="copyCmd()"
+                        class="material-icons px-2 py-2 bg-[var(--surface)] border rounded text-[var(--text)] hover:bg-[var(--hover)]"
+                        style="border-color: var(--border)"
+                    >
+                        content_copy
+                    </button>
+                </div>
+            </div>
+            <div class="container-narrow px-4">
+                <img src="image.png" alt="GooeyBuilder Preview" />
+            </div>
+        </section>
+
+        <section
+            id="features"
+            class="py-20"
+            style="background-color: var(--hover)"
+        >
+            <div class="container-narrow px-4 grid md:grid-cols-3 gap-8">
+                <div class="p-6 border rounded-xl bg-[var(--surface)]">
+                    <h3 class="font-semibold mb-2">Widget-Based Design</h3>
+                    <p class="text-sm" style="color: var(--text-secondary)">
+                        Compose interfaces using native Gooey widgets with drag
+                        & drop.
+                    </p>
+                </div>
+                <div class="p-6 border rounded-xl bg-[var(--surface)]">
+                    <h3 class="font-semibold mb-2">Live Properties</h3>
+                    <p class="text-sm" style="color: var(--text-secondary)">
+                        Edit size, position, text, colors, and layout in real
+                        time.
+                    </p>
+                </div>
+                <div class="p-6 border rounded-xl bg-[var(--surface)]">
+                    <h3 class="font-semibold mb-2">Clean C Output</h3>
+                    <p class="text-sm" style="color: var(--text-secondary)">
+                        Generates readable C code directly using the Gooey API.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="py-24">
+            <div class="container-narrow px-4 overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="p-4 border-b text-left">Capability</th>
+                            <th
+                                class="p-4 border-b text-left bg-[rgba(26,115,232,0.08)]"
+                            >
+                                GooeyBuilder
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-4 border-b">Widget System</td>
+                            <td class="p-4 border-b bg-[rgba(26,115,232,0.08)]">
+                                Buttons, Labels, Images, Containers, Tabs,
+                                Sliders, Progress Bars
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b">Property Editing</td>
+                            <td class="p-4 border-b bg-[rgba(26,115,232,0.08)]">
+                                Real-time inspector for widget attributes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b">Event Binding</td>
+                            <td class="p-4 border-b bg-[rgba(26,115,232,0.08)]">
+                                Callback hooks generated in C
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b">Code Generation</td>
+                            <td class="p-4 border-b bg-[rgba(26,115,232,0.08)]">
+                                Clean, maintainable Gooey-based C code
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b">Platforms</td>
+                            <td class="p-4 border-b bg-[rgba(26,115,232,0.08)]">
+                                Desktop, embedded Linux, microcontrollers
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b">Footprint</td>
+                            <td class="p-4 border-b bg-[rgba(26,115,232,0.08)]">
+                                Lightweight, minimal runtime dependencies
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer
+            class="py-12 border-t text-center text-sm"
+            style="border-color: var(--border)"
+        >
+            © 2025 GooeyBuilder [Built with ❤️ for C developers]
+        </footer>
+
+        <script>
+            function copyCmd() {
+                const cmd = document
+                    .getElementById("installCmd")
+                    .innerText.trim();
+                navigator.clipboard.writeText(cmd);
+                alert("Command copied to clipboard!");
+            }
+        </script>
+    </body>
+</html>
