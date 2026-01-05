@@ -43,6 +43,30 @@
                 border-radius: 10px;
                 font-size: 14px;
             }
+            .image-placeholder {
+                background: linear-gradient(
+                    45deg,
+                    var(--surface) 25%,
+                    var(--hover) 25%,
+                    var(--hover) 50%,
+                    var(--surface) 50%,
+                    var(--surface) 75%,
+                    var(--hover) 75%
+                );
+                background-size: 40px 40px;
+                border: 1px solid var(--border);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--text-secondary);
+            }
+            .feature-section {
+                width: 100%;
+                padding: 5rem 1rem;
+            }
+            .feature-section:nth-child(even) {
+                background-color: var(--hover);
+            }
         </style>
     </head>
     <body>
@@ -76,6 +100,7 @@
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#features">Features</a>
+                    <a href="#feature-overview">Overview</a>
                     <a href="#comparison">Capabilities</a>
                     <a
                         href="https://github.com/BinaryInkTN/GooeyBuilder"
@@ -128,30 +153,125 @@
             </div>
         </section>
 
-        <section
-            id="features"
-            class="py-20"
-            style="background-color: var(--hover)"
-        >
-            <div class="container-narrow px-4 grid md:grid-cols-3 gap-8">
-                <div class="p-6 border rounded-xl bg-[var(--surface)]">
-                    <h3 class="font-semibold mb-2">Widget-Based Design</h3>
-                    <p class="text-sm" style="color: var(--text-secondary)">
-                        Compose interfaces using native Gooey widgets with drag
-                        & drop.
-                    </p>
+        <!-- Feature Overview Heading -->
+        <section id="feature-overview" class="py-16 text-center">
+            <div class="container-narrow px-4">
+                <h2 class="text-3xl font-bold mb-4">Feature Overview</h2>
+                <p
+                    class="max-w-2xl mx-auto"
+                    style="color: var(--text-secondary)"
+                >
+                    Explore the powerful features that make GooeyBuilder the
+                    ideal tool for building Gooey interfaces
+                </p>
+            </div>
+        </section>
+
+        <!-- Feature 1 - Full Width -->
+        <section class="feature-section">
+            <div class="container-narrow px-4">
+                <div class="flex flex-col lg:flex-row gap-8 items-center">
+                    <div class="lg:w-2/3">
+                        <h3 class="font-semibold text-2xl mb-4">
+                            Visual Drag & Drop Interface
+                        </h3>
+                        <p
+                            class="mb-4 text-lg"
+                            style="color: var(--text-secondary)"
+                        >
+                            Build complex UIs by simply dragging widgets from
+                            the palette and dropping them onto the canvas.
+                            Intuitive controls for positioning and resizing make
+                            UI design effortless.
+                        </p>
+                    </div>
+                    <div
+                        class="lg:w-2/3 image-placeholder w-full h-64 lg:h-80 rounded-xl"
+                    >
+                        <img src="designer.png" alt="Visual Designer" />
+                    </div>
                 </div>
-                <div class="p-6 border rounded-xl bg-[var(--surface)]">
-                    <h3 class="font-semibold mb-2">Debug Console</h3>
-                    <p class="text-sm" style="color: var(--text-secondary)">
-                        Built-in console for debugging and inspecting output.
-                    </p>
+            </div>
+        </section>
+
+        <!-- Feature 2 - Full Width -->
+        <section class="feature-section" style="background-color: var(--hover)">
+            <div class="container-narrow px-4">
+                <div
+                    class="flex flex-col lg:flex-row-reverse gap-8 items-center"
+                >
+                    <div class="lg:w-2/3">
+                        <h3 class="font-semibold text-2xl mb-4">
+                            Live Property Inspector
+                        </h3>
+                        <p
+                            class="mb-4 text-lg"
+                            style="color: var(--text-secondary)"
+                        >
+                            Modify widget properties in real-time with a
+                            comprehensive inspector panel. Changes are
+                            immediately visible on the canvas, providing instant
+                            feedback.
+                        </p>
+                    </div>
+                    <div
+                        class="lg:w-2/3 image-placeholder w-full h-64 lg:h-80 rounded-xl"
+                    >
+                        <img src="properties.png" alt="Property Editor" />
+                    </div>
                 </div>
-                <div class="p-6 border rounded-xl bg-[var(--surface)]">
-                    <h3 class="font-semibold mb-2">Clean C Output</h3>
-                    <p class="text-sm" style="color: var(--text-secondary)">
-                        Generates readable C code directly using the Gooey API.
-                    </p>
+            </div>
+        </section>
+
+        <!-- Feature 3 - Full Width -->
+        <section class="feature-section">
+            <div class="container-narrow px-4">
+                <div class="flex flex-col lg:flex-row gap-8 items-center">
+                    <div class="lg:w-2/3">
+                        <h3 class="font-semibold text-2xl mb-4">
+                            Intellisense
+                        </h3>
+                        <p
+                            class="mb-4 text-lg"
+                            style="color: var(--text-secondary)"
+                        >
+                            Intellisense for GooeyC, providing code completion
+                            and error checking for Gooey C code.
+                        </p>
+                    </div>
+                    <div
+                        class="lg:w-2/3 image-placeholder w-full h-64 lg:h-80 rounded-xl"
+                    >
+                        <img src="intellisense.png" alt="Intellisense" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 4 - Full Width -->
+        <section class="feature-section" style="background-color: var(--hover)">
+            <div class="container-narrow px-4">
+                <div
+                    class="flex flex-col lg:flex-row-reverse gap-8 items-center"
+                >
+                    <div class="lg:w-2/3">
+                        <h3 class="font-semibold text-2xl mb-4">
+                            Integrated Debug Console
+                        </h3>
+                        <p
+                            class="mb-4 text-lg"
+                            style="color: var(--text-secondary)"
+                        >
+                            Built-in console for real-time debugging, output
+                            inspection, and performance monitoring during UI
+                            development. Track events and catch issues early.
+                        </p>
+                    </div>
+                    <div
+                        class="lg:w-2/3 image-placeholder w-full h-64 lg:h-80 rounded-xl"
+                    >
+                        <img src="console.png" alt="Debug Console" />
+                    </div>
                 </div>
             </div>
         </section>
